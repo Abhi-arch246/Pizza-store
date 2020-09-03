@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./header.ejs')%>
+<body>
+    <h1 class="p-2 mt-5 ml-5 font-italic">All Pizza orders</h1>
+    <div class="container">
+        <div class="mt-5">
+        <% if(orders.length > 0) { %>
+            <% orders.forEach(doc =>{ %>
+                <div style="border-left: 10px solid #555;" class="row mt-4">
+                    <div class="col-md-2">
+                        <img src="../pizza.png" alt="" width="160">
+                    </div>
+                    <div class="col-md-10 my-auto">
+                        <h5>Name: <%= doc.name %></h5>
+                        <p>Pizza Order: <%= doc.pizzaorder %></p>
+                        <p>Location: <%= doc.location %></p>
+                        <p>Order Time: <%= doc.createdAt %></p>
+                    </div>
+                </div>
+                
+            <% }) %>
+        <%  } else { %>
+            <h4 class="text-center p-5">There are no orders as of now :(</h4>
+        <%  }  %>
+
+    </div>
+
+    <%- include('./footer.ejs')%>
+    </div>
+    
+</body>
+</html>
